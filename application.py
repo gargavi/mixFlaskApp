@@ -4,8 +4,6 @@ from flask import Flask, redirect, request, render_template, session, url_for, f
 
 
 application = Flask(__name__)
-application.secret_key = "something_else"
-bootstrap = Bootstrap(application)
 
 @application.route("/")
 def index(): 
