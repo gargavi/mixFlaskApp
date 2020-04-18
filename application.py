@@ -14,9 +14,10 @@ application.secret_key = "something_else"
 bootstrap = Bootstrap(application)
 
 
-CLIENT_SIDE_URL = "http://127.0.0.1"
+CLIENT_SIDE_URL = "https://songmatcher.azurewebsites.net"
 PORT = 8080
-REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
+#REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
+REDIRECT_URI = CLIENT_SIDE_URL + "/home"
 SCOPE = ("playlist-modify-public playlist-modify-private "
          "playlist-read-collaborative playlist-read-private user-library-read user-library-modify")
 
