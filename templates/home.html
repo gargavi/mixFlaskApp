@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename = 'main.css')}}"> 
+    <title> Home Page</title>
+</head>
+<body>
+<div class="container"> 
+    <div class="row" style = "text-align: center"> 
+        <h1> Mixing Tool </h1> <br> 
+        <a href = "/howto"> <h5> How to use? </h5></a>
+    </div>
+    <div class="divider"></div>
+    <div class="row"> 
+        <div class = "col-md-4">
+            <div class = "formheader">
+                <h3> What to Mix? </h3>
+            </div>
+            <div class = "formcontent"> 
+                <p></p> 
+                <form action="" method="post">
+                    <p> {{form.spotifyid.label}} {{form.spotifyid}}
+                    <p> {{form.exact.label}} {{form.exact}}</p>
+                    <p>{{form.double.label}} {{form.double}}</p>
+                    <p>{{form.half.label}} {{form.half}}</p>
+                    <p> {{form.normal.label}}{{form.normal}}</p>
+                    <p> {{form.popularity.label}} {{form.popularity}} </p>
+                    <p> {{form.tightness.label}} {{form.tightness}} </p>
+                    <p> {{form.numbers.label}}{{form.numbers}}</p>
+                    <p> {{form.submit.label}}{{form.submit}}</p>
+                </form>
+            </div>
+        </div>
+        <div class = "col-md-8">
+            <div class ="formheader"> 
+                <h3> Output <h3>
+            </div> 
+            <div class = "provided"> 
+                <div class = "row border"> 
+                    <div class = "col-md-2"> 
+                        <p> NAME </p>
+                    </div>
+                    <div class = "col-md-2"> 
+                        <p> ARTIST NAME</p>
+                    </div>
+                    <div class = "col-md-2"> 
+                        <p> POPULARITY </p>
+                    </div>
+                    <div class = "col-md-2"> 
+                        <p>TEMPO</p> 
+                    </div>
+                    <div class = "col-md-2"> 
+                         <p> TRUE KEY </p>
+                    </div>
+                </div>
+                <h5> GIVEN SONG </h5>
+                {% if target_song == None %}
+                    <p> There was a problem with the song name you put in. </p>
+                {% else %}
+                    <div class = "row border"> 
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[0] }}</p>
+                        </div>
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[1] }} </p>
+                        </div>
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[2] }}  </p>
+                        </div>
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[3] }} </p>
+                        </div>
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[4] }}</p>
+                        </div>
+                        <div class = "col-md-2"> 
+                           <p> {{target_song[5] }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div> 
+            <h5> Matched Songs</h5>
+            <div class = "output"> 
+                {% for song in values %}
+                <div class = "row border"> 
+                    <div class = "col-md-2"> 
+                       <p> {{song[0] }}</p>
+                    </div>
+                    <div class = "col-md-2"> 
+                       <p> {{song[1] }}</p>
+                    </div>
+                    <div class = "col-md-2"> 
+                       <p> {{song[2] }}  </p>
+                    </div>
+                    <div class = "col-md-2"> 
+                       <p> {{song[3] }} </p>
+                    </div>
+                    <div class = "col-md-2"> 
+                       <p> {{song[4] }}</p>
+                    </div>
+                    <div class = "col-md-2"> 
+                        <p>{{song[5] }} </p>
+                    </div>
+                
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+<div class="divider"></div>
+</body>
+</html>
