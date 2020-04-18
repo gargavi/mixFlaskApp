@@ -1,5 +1,6 @@
 body { 
-    background-color: #99D6DB;
+    /*background-color: #99D6DB; */
+    background-color: white;
     font-family: Garamond;
     
 }
@@ -17,6 +18,7 @@ h1 {
     border-color: black;
     border-width: 2px;
     text-align: center;
+    background-color: #99d6Db;
 }
 .formcontent { 
     text-align: center;
