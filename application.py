@@ -15,9 +15,10 @@ bootstrap = Bootstrap(application)
 
 
 CLIENT_SIDE_URL = "avigarg.pythonanywhere.com"
+CLIENT_SIDE_URL = "http://127.0.0.1"
 PORT = 8080
-#REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
-REDIRECT_URI = CLIENT_SIDE_URL + "/home"
+REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
+#REDIRECT_URI = CLIENT_SIDE_URL + "/home"
 SCOPE = ("playlist-modify-public playlist-modify-private "
          "playlist-read-collaborative playlist-read-private user-library-read user-library-modify")
 
@@ -283,7 +284,7 @@ def get_prefs():
 
 
 #this just runs the function
-#if __name__ == "__main__":
-#    #application.run(debug = True, host = "0.0.0.0")
-#    application.run(debug=True, port=PORT)
+if __name__ == "__main__":
+#   #application.run(debug = True, host = "0.0.0.0")
+    application.run(debug=True, port=PORT)
 
