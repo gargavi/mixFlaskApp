@@ -14,7 +14,7 @@ application.secret_key = "something_else"
 bootstrap = Bootstrap(application)
 
 
-CLIENT_SIDE_URL = "https://songmatcher.azurewebsites.net"
+CLIENT_SIDE_URL = "avigarg.pythonanywhere.com"
 PORT = 8080
 #REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
 REDIRECT_URI = CLIENT_SIDE_URL + "/home"
