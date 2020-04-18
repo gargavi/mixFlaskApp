@@ -204,6 +204,7 @@ def close_match(song, songs, matching = 0, closeness = 1, exact_key = False, hal
 
 
 #song_db = pd.read_csv("output.csv")
+song_db = pd.DataFrame()
 stored_info = {}
 @application.route("/")
 def index(): 
