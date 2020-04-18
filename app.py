@@ -206,7 +206,11 @@ def close_match(song, songs, matching = 0, closeness = 1, exact_key = False, hal
 song_db = pd.read_csv("output.csv")
 stored_info = {}
 @application.route("/")
-def index():
+def index(): 
+    return "Hello World"
+
+
+def index1():
     stored_info["token"] = None
     sp_oauth = get_oauth()
     return redirect(sp_oauth.get_authorize_url())
