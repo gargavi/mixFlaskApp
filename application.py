@@ -14,9 +14,11 @@ application.secret_key = "something_else"
 bootstrap = Bootstrap(application)
 
 
+CLIENT_SIDE_URL = "avigarg.pythonanywhere.com"
 CLIENT_SIDE_URL = "http://127.0.0.1"
 PORT = 8080
 REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
+#REDIRECT_URI = CLIENT_SIDE_URL + "/home"
 SCOPE = ("playlist-modify-public playlist-modify-private "
          "playlist-read-collaborative playlist-read-private user-library-read user-library-modify")
 
@@ -203,10 +205,15 @@ def close_match(song, songs, matching = 0, closeness = 1, exact_key = False, hal
     return reduced
 
 
-song_db = pd.read_csv("output.csv")
+#song_db = pd.read_csv("output.csv")
 stored_info = {}
+song_db = pd.DataFrame()
 @application.route("/")
-def index():
+def index(): 
+    return "Hello World"
+
+
+def index1():
     stored_info["token"] = None
     sp_oauth = get_oauth()
     return redirect(sp_oauth.get_authorize_url())
@@ -240,11 +247,11 @@ def home():
         matching_df = matching_df[:form.numbers.data]
         all_rows = []
         for _, row in matching_df.iterrows():
-            to_add = [row["name"], row.artist_name, row.popularity, str(row.tempo), row.true_key]
+            to_add = [row["name"], row.artist_name, row.popularity, row.tempo, row.true_key]
             all_rows.append(to_add)
         index = target_song.index[0]
         diction = target_song.to_dict()
-        target_song = [index[0], index[1], diction["popularity"][index], str(diction["tempo"][index]), diction["true_key"][index]]
+        target_song = [index[0], index[1], diction["popularity"][index], diction["tempo"][index], diction["true_key"][index]]
         return render_template("home.html", form = form, values = all_rows, target_song = target_song)
     return render_template("home.html", form = form, values = [], target_song = "")
 
@@ -268,7 +275,8 @@ def get_spotify(auth_token=None):
 
 def get_prefs():
     """Get application prefs plist and set secret key.
-    
+    Args:
+        path: String path to a plist file.
     """
     prefs = {'ClientID' : '9a89b1b3f68a46d085cdc372adef5fdd',
              'ClientSecret': 'b6ea71732a224938b6a48fa51581b7d6'}
@@ -277,6 +285,6 @@ def get_prefs():
 
 #this just runs the function
 if __name__ == "__main__":
-    #application.run(debug = True, host = "0.0.0.0")
+#   #application.run(debug = True, host = "0.0.0.0")
     application.run(debug=True, port=PORT)
 

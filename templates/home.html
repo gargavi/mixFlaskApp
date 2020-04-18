@@ -14,11 +14,12 @@
     <link rel="stylesheet" type="text/css" href= "{{url_for('static', filename = 'main.css')}}"> 
     <title> Home Page</title>
 </head>
+
 <body>
 <div class="container"> 
     <div class="row" style = "text-align: center"> 
         <h1> Mixing Tool </h1> <br> 
-        <a href = "/howto"> <h5> How to use? </h5></a>
+        <a href = "{{url_for('static', filename = 'howto.html' )}}" target = "_blank"> <h5> How to use? </h5></a>
     </div>
     <div class="divider"></div>
     <div class="row"> 
@@ -80,7 +81,7 @@
                            <p> {{target_song[2] }}  </p>
                         </div>
                         <div class = "col-md-2"> 
-                           <p> {{target_song[3] }} </p>
+                           <p> {{target_song[3][:5] }} </p>
                         </div>
                         <div class = "col-md-2"> 
                            <p> {{target_song[4] }}</p>
@@ -91,7 +92,7 @@
                     </div>
                 {% endif %}
             </div> 
-            <h5> Matched Songs</h5>
+            <h5> MATCHED SONGS</h5>
             <div class = "output"> 
                 {% for song in values %}
                 <div class = "row border"> 
@@ -105,7 +106,7 @@
                        <p> {{song[2] }}  </p>
                     </div>
                     <div class = "col-md-2"> 
-                       <p> {{song[3] }} </p>
+                       <p> {{song[3][:5] }} </p>
                     </div>
                     <div class = "col-md-2"> 
                        <p> {{song[4] }}</p>

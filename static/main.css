@@ -27,6 +27,9 @@ h1 {
     border-style: double;
 }
 
+img { 
+    width: 100%;
+}
 .border {
     border-style:solid;
     border-top-width: 1px;
