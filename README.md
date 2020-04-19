@@ -21,3 +21,11 @@ CLIENTID and a CLIENTSECRET which you should put in the get_prefs() function in 
 ## How to use? 
 
 There is a helpful html link on the main page that will tell you how to do just that. 
+
+## Future Updates? 
+
+1. I will be adding an additional page that will let users add to their "database" 
+2. I will add a way to save the matched song to a playlist to allow a person to list to the songs 
+3. I will add a way to match songs based on other attributes (danceability, rhythm and more) 
+
+**Took base inspiration from sheagcraig's actually_random project for authentication** 
