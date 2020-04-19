@@ -17,8 +17,8 @@ bootstrap = Bootstrap(application)
 CLIENT_SIDE_URL = "http://127.0.0.1"
 PORT = 8080
 REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
-SCOPE = ("playlist-modify-public playlist-modify-private "
-         "playlist-read-collaborative playlist-read-private user-library-read user-library-modify")
+SCOPE = ("playlist-modify-public"
+         )
 
 # Forms to be used 
 
@@ -270,8 +270,8 @@ def get_prefs():
     """Get application prefs plist and set secret key.
     
     """
-    prefs = {'ClientID' : '9a89b1b3f68a46d085cdc372adef5fdd',
-             'ClientSecret': 'b6ea71732a224938b6a48fa51581b7d6'}
+    prefs = {'ClientID' : '',
+             'ClientSecret': ''}
     return prefs
 
 
