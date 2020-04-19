@@ -246,7 +246,7 @@ def home():
         diction = target_song.to_dict()
         target_song = [index[0], index[1], diction["popularity"][index], str(diction["tempo"][index]), diction["true_key"][index]]
         return render_template("home.html", form = form, values = all_rows, target_song = target_song)
-    return render_template("home.html", form = form, values = [], target_song = "")
+    return render_template("home.html", form = form, values = [], target_song = [])
 
 
 def get_oauth():

@@ -1,0 +1,5 @@
+env 
+flask_env
+.vscode 
+.azure
+.tokens
