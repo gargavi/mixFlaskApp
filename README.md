@@ -2,7 +2,7 @@
 A Flask App to help people trying to make mixes by matchings 
 songs based on tempo and key 
 
-![Description] (https://github.com/gargavi/mixFlaskApp/blob/master/static/images/readme1.JPG) 
+![Description](https://github.com/gargavi/mixFlaskApp/blob/master/static/images/readme1.JPG) 
 
 
 
