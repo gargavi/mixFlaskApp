@@ -14,11 +14,9 @@ application.secret_key = "something_else"
 bootstrap = Bootstrap(application)
 
 
-CLIENT_SIDE_URL = "avigarg.pythonanywhere.com"
 CLIENT_SIDE_URL = "http://127.0.0.1"
 PORT = 8080
 REDIRECT_URI = "{}:{}/home".format(CLIENT_SIDE_URL, PORT)
-#REDIRECT_URI = CLIENT_SIDE_URL + "/home"
 SCOPE = ("playlist-modify-public playlist-modify-private "
          "playlist-read-collaborative playlist-read-private user-library-read user-library-modify")
 
@@ -205,15 +203,10 @@ def close_match(song, songs, matching = 0, closeness = 1, exact_key = False, hal
     return reduced
 
 
-#song_db = pd.read_csv("output.csv")
+song_db = pd.read_csv("output.csv")
 stored_info = {}
-song_db = pd.DataFrame()
 @application.route("/")
-def index(): 
-    return "Hello World"
-
-
-def index1():
+def index():
     stored_info["token"] = None
     sp_oauth = get_oauth()
     return redirect(sp_oauth.get_authorize_url())
@@ -275,12 +268,7 @@ def get_spotify(auth_token=None):
 
 def get_prefs():
     """Get application prefs plist and set secret key.
-<<<<<<< HEAD
-    Args:
-        path: String path to a plist file.
-=======
     
->>>>>>> 5bcffb980fdf64c28e291f8bfee3e2269b42fc25
     """
     prefs = {'ClientID' : '9a89b1b3f68a46d085cdc372adef5fdd',
              'ClientSecret': 'b6ea71732a224938b6a48fa51581b7d6'}
@@ -289,6 +277,6 @@ def get_prefs():
 
 #this just runs the function
 if __name__ == "__main__":
-#   #application.run(debug = True, host = "0.0.0.0")
+    #application.run(debug = True, host = "0.0.0.0")
     application.run(debug=True, port=PORT)
 
