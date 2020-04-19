@@ -247,11 +247,11 @@ def home():
         matching_df = matching_df[:form.numbers.data]
         all_rows = []
         for _, row in matching_df.iterrows():
-            to_add = [row["name"], row.artist_name, row.popularity, row.tempo, row.true_key]
+            to_add = [row["name"], row.artist_name, row.popularity, str(row.tempo), row.true_key]
             all_rows.append(to_add)
         index = target_song.index[0]
         diction = target_song.to_dict()
-        target_song = [index[0], index[1], diction["popularity"][index], diction["tempo"][index], diction["true_key"][index]]
+        target_song = [index[0], index[1], diction["popularity"][index], str(diction["tempo"][index]), diction["true_key"][index]]
         return render_template("home.html", form = form, values = all_rows, target_song = target_song)
     return render_template("home.html", form = form, values = [], target_song = "")
 
@@ -275,8 +275,12 @@ def get_spotify(auth_token=None):
 
 def get_prefs():
     """Get application prefs plist and set secret key.
+<<<<<<< HEAD
     Args:
         path: String path to a plist file.
+=======
+    
+>>>>>>> 5bcffb980fdf64c28e291f8bfee3e2269b42fc25
     """
     prefs = {'ClientID' : '9a89b1b3f68a46d085cdc372adef5fdd',
              'ClientSecret': 'b6ea71732a224938b6a48fa51581b7d6'}
